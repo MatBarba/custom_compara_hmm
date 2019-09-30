@@ -28,10 +28,8 @@ sub default_options {
     pipeline_name => 'vb_hmmbuilder',
     email => $ENV{USER} . '@ebi.ac.uk',
     
-    books_dir => $self->o('books_dir'),
+    align_dir => $self->o('align_dir'),
     domain => 'vb',
-
-    coverage => 1,
 
     debug => 0,
   };
@@ -79,7 +77,7 @@ sub pipeline_analyses {
       -module     => 'AlignmentExport',
       -parameters => {
         registry => $self->o('reg_conf'),
-        dir => $self->o('books_dir'),
+        dir => $self->o('align_dir'),
         domain => $self->o('domain'),
       },
       -flow_into  => {
